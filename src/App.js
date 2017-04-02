@@ -1,21 +1,39 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 
 import Latest from './Latest.js'
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <Latest/>
-      </div>
-    );
-  }
+	constructor() {
+		super();
+		this.state = { view: "Latest" };
+		this.header = 
+			<div>
+				<a href="#" onClick={() => (this.setView('Latest'))}>Latest</a>
+				&nbsp;
+				<a href="#" onClick={() => (this.setView('Search'))}>Search</a>
+			</div>;
+	}
+	render() {
+		if (this.state.view === "Latest")
+			return (
+				<div>
+					{this.header}
+					<Latest/>
+				</div>
+			);
+		else
+			return (
+				<div>
+					{this.header}
+				</div>
+			);
+	}
+
+	setView(view) {
+		this.setState({
+			view: view
+		});
+	}
 }
 
 export default App;
