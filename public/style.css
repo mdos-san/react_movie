@@ -44,6 +44,12 @@ h1, h2, h3, h4, h5, h6 {
 		color: #109CFF;
 	}
 
+	.notice--black {
+		border: 1px solid #000000;
+
+		color: #000000;
+	}
+
 /*
 	BUTTON CLASS
 */
@@ -169,3 +175,5 @@ h1, h2, h3, h4, h5, h6 {
 .m_bgcl_green { background-color: #22CA2B; }
 .m_cl_green { color: #22CA2B; }
 .white { color: white; }
+
+.m_cs_pt { cursor: pointer; }

@@ -10,11 +10,16 @@ class App extends Component {
 		this.state = { view: "Up" };
 		this.header = 
 			<div className="menu">
+				<a className="menu__child menu__child--tittle" href="#" onClick={() => (this.setView('Up'))}>React Movie</a>
 				<a className="menu__child" href="#" onClick={() => (this.setView('Up'))}>Upcoming</a>
 				&nbsp;
 				<a className="menu__child" href="#" onClick={() => (this.setView('Top'))}>Top rated!</a>
 				&nbsp;
 				<a className="menu__child" href="#" onClick={() => (this.setView('Search'))}>Search</a>
+			</div>;
+		this.footer = 
+			<div className="box m_ta_c">
+				<p className="notice notice--black">Coded with love by mdos-san :D !</p>	
 			</div>;
 	}
 
@@ -28,6 +33,7 @@ class App extends Component {
 					<br/>
 					<div className="content">
 						<Top/>
+					{this.footer}
 					</div>
 				</div>
 			);
@@ -38,6 +44,7 @@ class App extends Component {
 					<br/>
 					<div className="content">
 					<Up/>
+					{this.footer}
 				</div>
 				</div>
 			);
@@ -48,6 +55,7 @@ class App extends Component {
 					<br/>
 					<div className="content">
 					<Search/>
+					{this.footer}
 				</div>
 				</div>
 			);

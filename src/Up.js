@@ -48,10 +48,10 @@ class Up extends Component {
 			return (
 				<div className="box">
 					<h2>Upcoming movies</h2>
-					<table>
+					<table className="m_m_a">
 						<tbody>
 						{this.state.r.results.map((item) => (
-							<tr onClick={() => (this.getDetails(item))} key={item.id}>
+							<tr className="m_cs_pt m_ta_c" onClick={() => (this.getDetails(item))} key={item.id}>
 								<td>
 									<img alt="No poster available"
 										src={"http://image.tmdb.org/t/p/w45/"
