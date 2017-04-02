@@ -1,0 +1,64 @@
+/*
+	MENU-TOP CLASS
+*/
+
+.menu {
+	display: 			block;
+	width: 				100%;
+	height: 			80px;
+
+	color: 				#fff;
+	background-color: 	#323232;
+}
+	.menu__option { display: inline-block; }
+	.menu__child:hover { background-color: #008cff; cursor: pointer; }
+	.menu__child {
+		display: 		inline-block;
+		height: 		80px;
+		padding: 		0 20px;
+
+		text-align: 		center;
+		line-height: 		80px;
+		vertical-align: 	middle;
+		color:				white;
+		background-color: 	#323232;
+	}
+	.menu__child--tittle { font-size: 40px; font-weight: 800; }
+	.menu__child--button { display: none; }
+
+@media (max-width: 1023px) {
+	.menu { height: 	160px; }
+	.menu__option {
+		display: 	none;
+		position: 	absolute;	
+		top: 		160px;
+		right: 		0;
+		left: 		0;	
+		z-index: 	1;
+	}
+	.menu__child { display: block; }
+	.menu__child--button {
+		display: 			block;
+
+		background-color: 	#008cff;
+	}
+	.menu__child--tittle { display: block; }
+}
+
+/*
+	CONTENT CLASS
+*/
+
+.content {
+	display: 	block;
+	position: 	absolute;
+	top: 		80px;
+	right: 		0;
+	bottom: 	0;
+	left: 		0;
+	overflow: 	auto;
+}
+
+@media (max-width: 1023px) {
+	.content { top: 160px; overflow: initial; }
+}

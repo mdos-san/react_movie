@@ -9,21 +9,26 @@ class App extends Component {
 		super();
 		this.state = { view: "Up" };
 		this.header = 
-			<div>
-				<a href="#" onClick={() => (this.setView('Up'))}>Upcoming</a>
+			<div className="menu">
+				<a className="menu__child" href="#" onClick={() => (this.setView('Up'))}>Upcoming</a>
 				&nbsp;
-				<a href="#" onClick={() => (this.setView('Top'))}>Top rated!</a>
+				<a className="menu__child" href="#" onClick={() => (this.setView('Top'))}>Top rated!</a>
 				&nbsp;
-				<a href="#" onClick={() => (this.setView('Search'))}>Search</a>
+				<a className="menu__child" href="#" onClick={() => (this.setView('Search'))}>Search</a>
 			</div>;
 	}
+
+	setView(view) { this.setState({ view: view }); }
+
 	render() {
 		if (this.state.view === "Top")
 			return (
 				<div>
 					{this.header}
 					<br/>
-					<Top/>
+					<div className="content">
+						<Top/>
+					</div>
 				</div>
 			);
 		else if (this.state.view === "Up")
@@ -31,7 +36,9 @@ class App extends Component {
 				<div>
 					{this.header}
 					<br/>
+					<div className="content">
 					<Up/>
+				</div>
 				</div>
 			);
 		else if (this.state.view === "Search")
@@ -39,14 +46,14 @@ class App extends Component {
 				<div>
 					{this.header}
 					<br/>
+					<div className="content">
 					<Search/>
+				</div>
 				</div>
 			);
 		else
 			return (<div> {this.header} </div>);
 	}
-
-	setView(view) { this.setState({ view: view }); }
 }
 
 export default App;

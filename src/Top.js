@@ -32,20 +32,21 @@ class Top extends Component {
 	render() {
 		if (this.state.details !== undefined)
 			return (
-				<div>
-					<button onClick={() => (this.goBack())}>Go Back</button>
+				<div className="box">
+					<button className="button" onClick={() => (this.goBack())}>Go Back</button>
+					<br/><br/>
 					<Detail obj={this.state.details} />
 				</div>
 			);
 		else if (this.state.r === undefined)
 			return (
-				<div>
+				<div className="box">
 					<p>Waiting for server response...</p>
 				</div>
 			);
 		else
 			return (
-				<div>
+				<div className="box">
 					<h2>Top rated movies</h2>
 					<table>
 						<tbody>

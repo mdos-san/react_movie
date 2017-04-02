@@ -39,23 +39,25 @@ class Search extends Component {
 	render() {
 		if (this.state.details !== undefined)
 			return (
-				<div>
-					<button onClick={() => (this.goBack())}>Go Back</button>
+				<div className="box">
+					<button className="button" onClick={() => (this.goBack())}>Go Back</button>
+					<br/><br/>
 					<Detail obj={this.state.details} />
 				</div>
 			);
 		else if (this.state.r === undefined)
 			return (
-				<div>
+				<div className="box">
 					<h2>Search</h2>
 					<input onChange={this.searchApi} type="text" placeholder="Search a movie..."/>
 				</div>
 			);
 		else
 			return (
-				<div>
+				<div className="box">
 					<h2>Search</h2>
-					<input onChange={this.searchApi} type="text" placeholder="Search a movie..."/>
+					<input className="input" onChange={this.searchApi} type="text" placeholder="Search a movie..."/>
+					<br/><br/>
 					<table>
 						<tbody>
 						{this.state.r.results.map((item) => (
