@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-//import Detail 				from './Detail.js';
+import Detail 				from './Detail.js';
 import $					from '../public/jquery.js'
 
 class Search extends Component {
@@ -25,8 +25,26 @@ class Search extends Component {
 		}
 	}
 
+	getDetails(item) {
+		this.setState({
+			r: this.state.r,
+			details: item
+		})
+	}
+
+	goBack() {
+		this.setState({r: this.state.r, details: undefined});
+	}
+
 	render() {
-		if (this.state.r === undefined)
+		if (this.state.details !== undefined)
+			return (
+				<div>
+					<button onClick={() => (this.goBack())}>Go Back</button>
+					<Detail obj={this.state.details} />
+				</div>
+			);
+		else if (this.state.r === undefined)
 			return (
 				<div>
 					<h2>Search</h2>
@@ -41,7 +59,7 @@ class Search extends Component {
 					<table>
 						<tbody>
 						{this.state.r.results.map((item) => (
-							<tr key={item.id}>
+							<tr onClick={() => (this.getDetails(item))} key={item.id}>
 								<td>{item.title}</td>
 								<td>{item.release_date}</td>
 							</tr>

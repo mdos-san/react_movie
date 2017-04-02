@@ -28,12 +28,12 @@ class Latest extends Component {
 			});
 		});
 	}
-	
+
 	render() {
 		return (
 			<div>
 				<h2>Latest movie!</h2>
-				<Detail obj={this.state.r} img={this.state.img}/>
+				<Detail obj={this.state.r}/>
 			</div>
 		);
 	}

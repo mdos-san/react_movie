@@ -17,7 +17,9 @@ class Detail extends Component {
 			return (
 				<div>
 					<h3>{this.props.obj.title}</h3>
-					<img alt="No poster available" src={this.props.img}/>
+					<img alt="No poster available"
+							src={"http://image.tmdb.org/t/p/w185/"
+							+ this.props.obj.poster_path}/>
 					<p>{this.props.obj.overview}</p>
 				</div>
 			);
