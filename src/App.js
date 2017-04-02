@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import Latest from './Latest.js'
+import Latest from './Latest'
+import Search from './Search'
 
 class App extends Component {
 	constructor() {
@@ -21,19 +22,18 @@ class App extends Component {
 					<Latest/>
 				</div>
 			);
-		else
+		else if (this.state.view === "Search")
 			return (
 				<div>
 					{this.header}
+					<Search/>
 				</div>
 			);
+		else
+			return (<div> {this.header} </div>);
 	}
 
-	setView(view) {
-		this.setState({
-			view: view
-		});
-	}
+	setView(view) { this.setState({ view: view }); }
 }
 
 export default App;
