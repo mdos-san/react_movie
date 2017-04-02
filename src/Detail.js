@@ -13,6 +13,12 @@ class Detail extends Component {
 					<h3>Waiting for server response...</h3>
 				</div>
 			);
+		else if (this.props.obj.adult === true)
+			return (
+				<div>
+					<p>The movie you are looking for is for an adult public, sorry i can't show you the poster information since I have no idea of what your are going to see xD</p>
+				</div>
+			);
 		else
 			return (
 				<div>
