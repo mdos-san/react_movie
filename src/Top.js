@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import Detail 				from './Detail.js';
-import $					from '../public/jquery.js'
+import List 				from './List.js';
+import $					from '../public/jquery.js';
 
 class Top extends Component {
 	constructor() {
@@ -30,15 +30,7 @@ class Top extends Component {
 	}
 
 	render() {
-		if (this.state.details !== undefined)
-			return (
-				<div className="box">
-					<button className="button" onClick={() => (this.goBack())}>Go Back</button>
-					<br/><br/>
-					<Detail obj={this.state.details} />
-				</div>
-			);
-		else if (this.state.r === undefined)
+		if (this.state.r === undefined)
 			return (
 				<div className="box">
 					<p>Waiting for server response...</p>
@@ -48,21 +40,7 @@ class Top extends Component {
 			return (
 				<div className="box">
 					<h2>Top rated movies</h2>
-					<table>
-						<tbody>
-						{this.state.r.results.map((item) => (
-							<tr onClick={() => (this.getDetails(item))} key={item.id}>
-								<td>
-									<img alt="No poster available"
-										src={"http://image.tmdb.org/t/p/w45/"
-										+ item.poster_path}/>
-								</td>
-								<td>{item.title}</td>
-								<td>{item.release_date}</td>
-							</tr>
-						))}
-						</tbody>
-					</table>
+					<List responses={this.state.r}/>
 				</div>
 			);
 	}

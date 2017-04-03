@@ -21,11 +21,14 @@ class Detail extends Component {
 			);
 		else
 			return (
-				<div>
-					<h3>{this.props.obj.title}</h3>
+				<div className="m_ta_c">
+					<h1>{this.props.obj.title}</h1>
 					<img alt="No poster available"
 							src={"http://image.tmdb.org/t/p/w185/"
 							+ this.props.obj.poster_path}/>
+					<br/><br/><hr/>
+					<br/>
+					<h2>Overview</h2>
 					<p>{this.props.obj.overview}</p>
 				</div>
 			);

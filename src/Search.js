@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Detail 				from './Detail.js';
+import List 				from './List.js';
 import $					from '../public/jquery.js'
 
 class Search extends Component {
@@ -25,54 +25,21 @@ class Search extends Component {
 		}
 	}
 
-	getDetails(item) {
-		this.setState({
-			r: this.state.r,
-			details: item
-		})
-	}
-
-	goBack() {
-		this.setState({r: this.state.r, details: undefined});
-	}
-
 	render() {
-		if (this.state.details !== undefined)
-			return (
-				<div className="box">
-					<button className="button" onClick={() => (this.goBack())}>Go Back</button>
-					<br/><br/>
-					<Detail obj={this.state.details} />
-				</div>
-			);
-		else if (this.state.r === undefined)
+		if (this.state.r === undefined)
 			return (
 				<div className="box">
 					<h2>Search</h2>
-					<input onChange={this.searchApi} type="text" placeholder="Search a movie..."/>
+					<input className="input" onChange={this.searchApi} type="text" placeholder="Search for a movie..."/>
 				</div>
 			);
 		else
 			return (
 				<div className="box">
 					<h2>Search</h2>
-					<input className="input" onChange={this.searchApi} type="text" placeholder="Search a movie..."/>
+					<input className="input" onChange={this.searchApi} type="text" placeholder="Search for a movie..."/>
 					<br/><br/>
-					<table>
-						<tbody>
-						{this.state.r.results.map((item) => (
-							<tr onClick={() => (this.getDetails(item))} key={item.id}>
-								<td>
-									<img alt="No poster available"
-										src={"http://image.tmdb.org/t/p/w45/"
-										+ item.poster_path}/>
-								</td>
-								<td>{item.title}</td>
-								<td>{item.release_date}</td>
-							</tr>
-						))}
-						</tbody>
-					</table>
+					<List responses={this.state.r}/>
 				</div>
 			);
 	}
